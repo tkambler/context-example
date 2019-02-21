@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
 import { AppContext, PeopleContext } from './contexts';
-import { People } from './components';
+import { People, Widget } from './components';
 
 function App() {
+
+    const [ counter, setCounter ] = useState(0);
+
+    setInterval(() => {
+        setCounter(counter + 1);
+    }, 4000);
 
     const [ people, setPeople ] = useState(['JZ', 'Abe', 'Mollie']);
 
@@ -16,21 +22,30 @@ function App() {
         setPeople(_.without(people, person));
     }
 
+    console.log('Rendering: App');
+
     return (
-        <PeopleContext.Provider
+        <AppContext.Provider
             value={{
-                people,
-                addPerson,
-                removePerson,
+                counter
             }}
         >
-            <div>
+            <PeopleContext.Provider
+                value={{
+                    people,
+                    addPerson,
+                    removePerson,
+                }}
+            >
                 <div>
-                    App.
+                    <div>
+                        App.
+                    </div>
+                    <People />
+                    <Widget />
                 </div>
-                <People />
-            </div>
-        </PeopleContext.Provider>
+            </PeopleContext.Provider>
+        </AppContext.Provider>
     );
 
 

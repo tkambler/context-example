@@ -6,6 +6,8 @@ function People() {
     const { people, addPerson, removePerson } = useContext(PeopleContext);
     const [ name, setName ] = useState('');
 
+    console.log('Rendering: People');
+
     return (
         <div>
             <ul>
