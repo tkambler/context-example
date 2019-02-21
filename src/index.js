@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
 import { AppContext, PeopleContext } from './contexts';
@@ -7,10 +7,6 @@ import { People, Widget } from './components';
 function App() {
 
     const [ counter, setCounter ] = useState(0);
-
-    setInterval(() => {
-        setCounter(counter + 1);
-    }, 4000);
 
     const [ people, setPeople ] = useState(['JZ', 'Abe', 'Mollie']);
 
@@ -21,6 +17,12 @@ function App() {
     function removePerson(person) {
         setPeople(_.without(people, person));
     }
+
+    useEffect(() => {
+        setInterval(() => {
+            setCounter(counter + 1);
+        }, 4000);
+    }, []);
 
     console.log('Rendering: App');
 
