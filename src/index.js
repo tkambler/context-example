@@ -6,11 +6,11 @@ import { People, Widget } from './components';
 
 function App() {
 
-    const [ counter, setCounter ] = useState(0);
+    // const [ counter, setCounter ] = useState(0);
 
-    setInterval(() => {
-        setCounter(counter + 1);
-    }, 4000);
+    // setInterval(() => {
+    //     setCounter(counter + 1);
+    // }, 4000);
 
     const [ people, setPeople ] = useState(['JZ', 'Abe', 'Mollie']);
 
@@ -25,27 +25,20 @@ function App() {
     console.log('Rendering: App');
 
     return (
-        <AppContext.Provider
+        <PeopleContext.Provider
             value={{
-                counter
+                people,
+                addPerson,
+                removePerson,
             }}
         >
-            <PeopleContext.Provider
-                value={{
-                    people,
-                    addPerson,
-                    removePerson,
-                }}
-            >
+            <div>
                 <div>
-                    <div>
-                        App.
-                    </div>
-                    <People />
-                    <Widget />
+                    App.
                 </div>
-            </PeopleContext.Provider>
-        </AppContext.Provider>
+                <People />
+            </div>
+        </PeopleContext.Provider>
     );
 
 
