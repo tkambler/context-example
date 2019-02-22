@@ -51,7 +51,6 @@ function App() {
         </Router>
     );
 
-
 }
 
 ReactDOM.render(
