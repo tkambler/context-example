@@ -26,6 +26,9 @@ function People() {
             />
             <button
                 onClick={() => {
+                    if (!name) {
+                        return;
+                    }
                     addPerson(name);
                     setName('');
                 }}

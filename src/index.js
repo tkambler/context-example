@@ -15,7 +15,13 @@ function App() {
                 ]}
             >
                 <People />
-                <hr />
+            </PeopleContainer>
+            <PeopleContainer
+                initialPeople={[
+                    'Tim',
+                    'Laura',
+                ]}
+            >
                 <People />
             </PeopleContainer>
         </div>
