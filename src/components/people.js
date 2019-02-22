@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { AppContext, PeopleContext } from 'app/contexts';
+import { Context as PeopleContext } from 'app/containers/people';
 
 function People() {
 
     const { people, addPerson, removePerson } = useContext(PeopleContext);
     const [ name, setName ] = useState('');
-
-    console.log('Rendering: People');
 
     return (
         <div>
