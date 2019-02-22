@@ -1,24 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { AppContext, PeopleContext } from 'app/contexts';
+import PeopleContext from 'app/containers/people/context';
 
-function People() {
+function PeopleForm() {
 
-    const { people, addPerson, removePerson } = useContext(PeopleContext);
+    const { addPerson } = useContext(PeopleContext);
     const [ name, setName ] = useState('');
 
-    console.log('Rendering: People');
+    console.log('Rendering: PeopleForm');
 
     return (
         <div>
-            <ul>
-                {
-                    people.map((person) => {
-                        return (
-                            <li key={person}>{person} <button onClick={() => { removePerson(person) }}>Remove</button></li>
-                        )
-                    })
-                }
-            </ul>
             <input
                 type="text"
                 value={name}
@@ -39,4 +30,4 @@ function People() {
 
 }
 
-export default People;
+export default PeopleForm;
