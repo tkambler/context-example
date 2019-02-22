@@ -18,11 +18,11 @@ function App() {
         setPeople(_.without(people, person));
     }
 
-    useEffect(() => {
-        setInterval(() => {
-            setCounter(counter + 1);
-        }, 4000);
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setCounter(counter + 1);
+    //     }, 4000);
+    // }, [counter]);
 
     console.log('Rendering: App');
 
@@ -40,9 +40,6 @@ function App() {
                 }}
             >
                 <div>
-                    <div>
-                        App.
-                    </div>
                     <People />
                     <Widget />
                 </div>
