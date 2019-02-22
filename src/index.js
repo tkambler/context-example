@@ -22,8 +22,8 @@ function App() {
         <Router basename="/">
             <AppContext.Provider
                 value={{
-                    counter: 0,
-                    setCounter: 0
+                    counter,
+                    setCounter,
                 }}
             >
                 <PeopleContext.Provider
